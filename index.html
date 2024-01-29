@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>CryptoCat World</title>
+    
+</head>
+
+<body>
+    <!-- Main content-->
+    <main>
+        <!-- Start screen: is initial shown on the game-->
+        <div id="game-intro">
+            <img src="./images/Cryptocat.png" alt="image of a cat" id="logo-img" />
+            <p>Insert intro here</p>
+            <br />
+            <button id="start-button">Start Game</button>
+            <button id="instructions-button">Instructions</button> 
+            <br />
+            <div id="game-container">
+                <h2>Stats</h2>
+                <p>Score: <span id="score">0</span></p>
+                <p>Lives: <span id="lives">3</span></p>
+            </div>
+        </div>
+    
+        <!-- Instructions screen: only shown when clicking on the "Instructiions" button-->
+        <div id="instructions-screen">
+            <h3>Instructions</h3>
+            <ul>
+                <li>Instruction 1</li>
+                <li>Instruction 2</li>
+                <li>Instruction 3</li>
+                <li>Motivation/Goal</li>
+                <button id="back-home-button">Back to Menu</button>
+            </ul>
+        </div>
+
+         <!-- Game screen: where the game happens-->
+         <div>
+            <div id="game-screen"></div>
+         </div>
+
+          <!-- Game over screen: when the game ends-->
+        <div>
+            <h1 id="game-over">Game Over!</h1>
+            <br />
+            <button id="restart-button">Restart Game</button>
+        </div>
+    </main>
+    <script type="text/javascript" src="./game.js"></script>
+    <script type="text/javascript" src="./player.js"></script>
+    <script type="text/javascript" src="./obstacles.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
+</body>
+</html>
