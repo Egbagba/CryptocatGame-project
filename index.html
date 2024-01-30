@@ -34,7 +34,14 @@
 
          <!-- Game screen: where the game happens-->
          <div id="game-screen">
-            <div></div>
+            <audio id="soundtrack" src="./audio/rydeen.mp3"></audio>
+            <img src="./images/lives.png" alt="image of heart" class="lives-icon" />
+            <img src="./images/lives.png" alt="image of heart" class="lives-icon" />
+            <img src="./images/lives.png" alt="image of heart" class="lives-icon" />
+            <span id="lives">3</span>
+            <div>
+                <h4>Score: <span id="score">0</span></h4>
+            </div>
          </div>
 
           <!-- Game over screen: when the game ends-->
@@ -44,9 +51,10 @@
             <button id="restart-button">Restart Game</button>
         </div>
     </main>
-    <script type="text/javascript" src="./game.js"></script>
-    <script type="text/javascript" src="./player.js"></script>
+    <!-- the obstacles and player should be before the game script -->
     <script type="text/javascript" src="./obstacles.js"></script>
+    <script type="text/javascript" src="./player.js"></script>
+    <script type="text/javascript" src="./game.js"></script>
     <script type="text/javascript" src="./script.js"></script>
 </body>
 </html>
