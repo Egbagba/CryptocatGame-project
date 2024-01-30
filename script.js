@@ -7,20 +7,16 @@ window.onload = function () {
     let game = new Game();
   
     startButton.addEventListener("click", function () {
-      startGame();
+      game.startGame();
     });
 
-    function startGame() {
-        game.start();
-      }
+    instructionsButton.addEventListener("click", function () {
+      game.showInstructions();
 
-      instructionsButton.addEventListener("click", function () {
-        instructions();
+    });
 
-      }); 
-      
-      function instructions() {
-            
+    backHomeButton.addEventListener("click", function () {
+      game.backHome();
+    });
 
-      }
 }

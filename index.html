@@ -12,18 +12,12 @@
     <!-- Main content-->
     <main>
         <!-- Start screen: is initial shown on the game-->
-        <div id="game-intro">
+        <div id="game-intro" >
             <img src="./images/Cryptocat.png" alt="image of a cat" id="logo-img" />
             <p>Insert intro here</p>
             <br />
             <button id="start-button">Start Game</button>
             <button id="instructions-button">Instructions</button> 
-            <br />
-            <div id="game-container">
-                <h2>Stats</h2>
-                <p>Score: <span id="score">0</span></p>
-                <p>Lives: <span id="lives">3</span></p>
-            </div>
         </div>
     
         <!-- Instructions screen: only shown when clicking on the "Instructiions" button-->
@@ -39,13 +33,13 @@
         </div>
 
          <!-- Game screen: where the game happens-->
-         <div>
-            <div id="game-screen"></div>
+         <div id="game-screen">
+            <div></div>
          </div>
 
           <!-- Game over screen: when the game ends-->
-        <div>
-            <h1 id="game-over">Game Over!</h1>
+        <div id="game-over">
+            <h1>Game Over!</h1>
             <br />
             <button id="restart-button">Restart Game</button>
         </div>
