@@ -5,8 +5,9 @@ class Player {
     
         // Position Values
         this.left = left;
+        this.initialLeft = left;
         this.top = top;
-
+        this.initialTop = top;
     
         // Player Dimension Values
         this.width = width;
@@ -23,7 +24,7 @@ class Player {
     
         this.directionX = 0;
         this.directionY = 0;
-        this.gravity = 0;
+        this.gravity = 15;
         this.isJumping = false;
     
         this.gameScreen.appendChild(this.element);
@@ -33,29 +34,25 @@ class Player {
         this.left += this.directionX;
         this.top += this.directionY;
 
-        // Handling the top part
-        if (this.top < 300) {
-          this.top = 300;
-      }
-      else if (this.top >= 300 && this.isJumping){
-          this.gravity +=1;
-          this.top += this.gravity;
-      }
-
-      // Handling the bottom part
-      if (this.top > 450 && this.isJumping) {
-          this.top = 449;
-          this.gravity = 0;
-          this.isJumping = false;
-      }
-
-      if (this.left + this.width > this.gameScreen.offsetWidth) {
+        // Handle the Right Side of the Screen : Car stops in the Right Border of the Game Screen
+        if (this.left + this.width > this.gameScreen.offsetWidth) {
           this.left = this.gameScreen.offsetWidth - this.width;
-      } else if (this.left < 0) {
+        }
+        // Handle the Left Side of the Screen: cat stops in the left border of the Game Screen
+        else if (this.left <= 0) {
           this.left = 0;
-      }
+        }
+        // Handle the Bottom Side of the Screen. This is calculated according with the initial top position passed in the constructor
+        if (this.top > this.initialTop) {
+          this.top = this.initialTop;
+          this.isJumping = false;
+        }
+        // Handle the Top Side of the Screen : cat stops in the Top Border of the Game Screen
+        else if (this.top <= 0) {
+          this.top = 0;
+          this.directionY = this.gravity;
+        }
 
-    
         this.updatePosition();
       }
     
@@ -64,25 +61,22 @@ class Player {
         this.element.style.top = `${this.top}px`;
       }
 
-      jump(){
-        this.gravity = - 20;
-        this.isJumping = true;
-      }
+     
 
       didCollide(obstacle) {
         const playerRect = this.element.getBoundingClientRect();
         const obstacleRect = obstacle.element.getBoundingClientRect();
 
         if (
-            playerRect.left < obstacleRect.right &&
-            playerRect.right > obstacleRect.left &&
-            playerRect.top < obstacleRect.bottom &&
-            playerRect.bottom > obstacleRect.top
-          ) {
-            return true;
-          } else {
-            return false;
-          }
+          playerRect.left < obstacleRect.right &&
+          playerRect.right > obstacleRect.left &&
+          playerRect.top < obstacleRect.bottom &&
+          playerRect.bottom > obstacleRect.top
+        ) {
+          return true;
+        } else {
+          return false;
         }
+      }
 
 }

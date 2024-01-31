@@ -37,15 +37,18 @@ window.onload = function () {
             case "ArrowLeft":
               game.player.directionX = - 10;
               break;
-              case "ArrowUp":
-                game.player.directionY = - 10;
-                break;
-                case "ArrowRight":
-                  game.player.directionX = 10;
-                  break;
-                  case "ArrowDown":
-                    game.player.directionY = 10;
-                    break;
+            case "ArrowUp":
+              if (!game.player.isJumping){
+                game.player.directionY = - 30;
+                game.player.isJumping = true;
+              }
+              break;
+            case "ArrowRight":
+              game.player.directionX = 10;
+              break;
+            case "ArrowDown":
+              game.player.directionY = 10;
+              break;
   
           }
         }
@@ -66,14 +69,15 @@ window.onload = function () {
             case "ArrowLeft":
               game.player.directionX = 0;
               break;
-              case "ArrowUp":
-                game.player.directionY = 0;
-                break;
-                case "ArrowRight":
-                  game.player.directionX = 0;
-                  case "ArrowDown":
-                    game.player.directionY = 0;
-  
+            case "ArrowUp":
+              game.player.directionY = game.player.gravity;
+              break;
+            case "ArrowRight":
+              game.player.directionX = 0;
+              break;
+            case "ArrowDown":
+              game.player.directionY = 0;
+              break;
           }
         }
   

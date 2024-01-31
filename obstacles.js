@@ -1,6 +1,7 @@
 class Obstacle {
-    constructor(gameScreen) {
+    constructor(gameScreen, coinImg, points) {
       this.gameScreen = gameScreen;
+      this. points = points;
   
       // Random Position
       this.left = 1000;
@@ -11,7 +12,7 @@ class Obstacle {
   
       // create the HTML element and create default styling
       this.element = document.createElement("img");
-      this.element.src = "./images/coin.png";
+      this.element.src = coinImg;
       this.element.style.position = "absolute";
       this.element.style.width = `${this.width}px`;
       this.element.style.height = `${this.height}px`;

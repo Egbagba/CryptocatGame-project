@@ -16,15 +16,21 @@ class Game {
             500, // for the cat to go down
             100,
             100,
-            "./images/cat.png" // ---->>> add the cat image
+            "./images/cat.png"
         );
 
         // game window dimensions
         this.height = 643;
-        this.width = 1200; // --->>> we need to change the dimensions
+        this.width = 1200;
 
         // Obstacles
         this.obstacles = [];
+
+        // coin images array to randomize the types of coins
+        this.coinTypes = ["./images/fida_coin.webp", "./images/near_coin.webp", "./images/sushi_coin.png"];
+
+        // coin points array to define the points or loses of each coin
+        this.coinTypePoints = [1, -1, 6];
 
         // Score
         this.score = 0;
@@ -95,20 +101,27 @@ class Game {
         for (let i = 0; i < this.obstacles.length; i++) {
           const obstacle = this.obstacles[i];
           obstacle.move();
-    
+
+          // If player colide with obstacle
           if (this.player.didCollide(obstacle)) {
             obstacle.element.remove();
     
             this.obstacles.splice(i, 1);
     
+
+            // Get the obstacle points
+            // if it is positive add to score and update score
+            // if it is negative remove life and update lives
+
+
             this.lives--;
 
             // update images of lives: remove life-img & add lifeless-img
             document.querySelector('.lives-icon').className = 'lifeless';
             let lifelessArray = document.querySelectorAll('.lifeless');
             lifelessArray.forEach(element => {
-            element.src = 'images/lifeless.png';
-          });
+                element.src = 'images/lifeless.png';
+            });
             
 
           } else if (obstacle.left < 0 ) {
@@ -128,24 +141,26 @@ class Game {
         }
 
             // If there are no obstacles, push a new one after 1second and half.
-            if (!this.obstacles.length && !this.isPushingObstacle) {
+        if (!this.obstacles.length && !this.isPushingObstacle) {
             this.isPushingObstacle = true;
             setTimeout(() => {
-            this.obstacles.push(new Obstacle(this.gameScreen));
-            this.isPushingObstacle = false;
-        }, 1500);
-      }
-      
-      score.innerHTML = this.score;
-      lives.innerHTML = this.lives;
+                // Calculate a random value between 0 and coinTypes array lenght
+                const i = Math.floor(Math.random() * this.coinTypes.length);
+
+                // Create a new Obstacle instance and pass as argument the gameScreen, the coint image and coin point 
+                let obstacle = new Obstacle(this.gameScreen, this.coinTypes[i], this.coinTypePoints[i]);
+                
+                this.obstacles.push(obstacle);
+                this.isPushingObstacle = false;
+            }, 1000);
+        }
+        score.innerHTML = this.score;
+        lives.innerHTML = this.lives;
     }
 
     endGame() {
         // Change the gameOver status. If it's true, remember this is going to break the animation loop.
         this.gameOver = true;
-    
-        // Remove my player
-        this.player.element.remove();
     
         // Remove all obstacles
         this.obstacles.forEach((obstacle, index) => {
@@ -161,12 +176,39 @@ class Game {
         // In order, to display the Game end screen
         this.gameOverScreen.style.display = "block";
 
+        //Show total score
+        let totalScore = document.getElementById("score-game-over");
+        totalScore.innerHTML = this.score;
+
     }
 
     // when clicking in the restart game button, we go to the start screen
     restartGame() {
+        this.gameOver = false;
+        // Restart the lives icon and lives lable to original value
+        let lifelessArray = document.querySelectorAll('.lifeless');
+        lifelessArray.forEach(element => {
+            element.src = 'images/lives.png';
+            element.classList = 'lives-icon';
+        });
+        this.lives = 3;
+        document.getElementById("lives").innerHTML = this.lives;
+
+        // Restart the score label and variable to original value
+        this.score = 0;
+        document.getElementById("score").innerHTML = this.score;
+
         this.gameOverScreen.style.display = "none";
         this.startScreen.style.display = "block";
+        this.player.element.remove();
+        this.player = new Player (
+            this.gameScreen,
+            100,
+            500, // for the cat to go down
+            100,
+            100,
+            "./images/cat.png" // ---->>> add the cat image
+        );
     }
 
 }
