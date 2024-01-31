@@ -90,7 +90,7 @@ class Game {
     }
 
     update() {
-        /* Score, Lives ScoreBoard */
+        // Get the score and lives element (span and images) by its id from the HTML
         let score = document.getElementById("score");
         let lives = document.getElementById("lives");
     
@@ -99,31 +99,16 @@ class Game {
     
         // Iterate over the obstacles array and make them move
         for (let i = 0; i < this.obstacles.length; i++) {
-          const obstacle = this.obstacles[i];
-          obstacle.move();
+          
+            // Store the obstacle in position i in const obstacle
+            const obstacle = this.obstacles[i];
+            obstacle.move();
 
           // If player colide with obstacle
           if (this.player.didCollide(obstacle)) {
-            obstacle.element.remove();
-    
-            this.obstacles.splice(i, 1);
-    
+            this.objectCollide(obstacle, i);
 
-            // Get the obstacle points
-            // if it is positive add to score and update score
-            // if it is negative remove life and update lives
-
-
-            this.lives--;
-
-            // update images of lives: remove life-img & add lifeless-img
-            document.querySelector('.lives-icon').className = 'lifeless';
-            let lifelessArray = document.querySelectorAll('.lifeless');
-            lifelessArray.forEach(element => {
-                element.src = 'images/lifeless.png';
-            });
-            
-
+            // Check if obstacle get out of the screen
           } else if (obstacle.left < 0 ) {
             this.score++;
     
@@ -140,22 +125,51 @@ class Game {
             this.endGame();
         }
 
-            // If there are no obstacles, push a new one after 1second and half.
-        if (!this.obstacles.length && !this.isPushingObstacle) {
-            this.isPushingObstacle = true;
-            setTimeout(() => {
-                // Calculate a random value between 0 and coinTypes array lenght
-                const i = Math.floor(Math.random() * this.coinTypes.length);
-
-                // Create a new Obstacle instance and pass as argument the gameScreen, the coint image and coin point 
-                let obstacle = new Obstacle(this.gameScreen, this.coinTypes[i], this.coinTypePoints[i]);
-                
-                this.obstacles.push(obstacle);
-                this.isPushingObstacle = false;
-            }, 1000);
+        // If there are no obstacles, push a new one after 1second and half.
+        if (this.obstacles.length < 10 && !this.isPushingObstacle) {
+           this.createNewObstacle();
         }
+        // Update the HTML values inside the score and lives element
         score.innerHTML = this.score;
         lives.innerHTML = this.lives;
+    }
+
+    objectCollide(obstacle, i) {
+        obstacle.element.remove();
+    
+        this.obstacles.splice(i, 1);
+
+        // Get the obstacle points
+        let points = obstacle.points;
+        // if it is positive add to score 
+        if (points >= 0) {
+            this.score += points;
+        }
+        // if it is negative remove life 
+        else {
+            this.lives--;
+            // update images of lives: remove life-img & add lifeless-img
+            document.querySelector('.lives-icon').className = 'lifeless';
+            let lifelessArray = document.querySelectorAll('.lifeless');
+            lifelessArray.forEach(element => {
+                element.src = 'images/lifeless.png';
+            });
+        }
+
+    }
+
+    createNewObstacle() {
+        this.isPushingObstacle = true;
+        setTimeout(() => {
+            // Calculate a random value between 0 and coinTypes array lenght
+            const i = Math.floor(Math.random() * this.coinTypes.length);
+
+            // Create a new Obstacle instance and pass as argument the gameScreen, the coint image and coin point 
+            let obstacle = new Obstacle(this.gameScreen, this.coinTypes[i], this.coinTypePoints[i]);
+            
+            this.obstacles.push(obstacle);
+            this.isPushingObstacle = false;
+        }, 1000);
     }
 
     endGame() {
@@ -170,6 +184,7 @@ class Game {
             obstacle.element.remove();
         });
     
+        this.soundtrack.pause();
         // Hide the current game screen
         this.gameScreen.style.display = "none";
     

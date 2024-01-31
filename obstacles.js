@@ -4,11 +4,11 @@ class Obstacle {
       this. points = points;
   
       // Random Position
-      this.left = 1000;
+      this.left = 1200;
   
-      this.top = 500;
-      this.width = 50;
-      this.height = 50;
+      this.top = this.randomCoinPosition(200, 500);
+      this.width = 60;
+      this.height = 60;
   
       // create the HTML element and create default styling
       this.element = document.createElement("img");
@@ -33,4 +33,10 @@ class Obstacle {
       this.element.style.left = `${this.left}px`;
       this.element.style.top = `${this.top}px`;
     }
+
+    randomCoinPosition(min, max) { // min and max included 
+      return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
   }
+  
