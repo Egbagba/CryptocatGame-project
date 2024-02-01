@@ -3,13 +3,13 @@ class Player {
         // gameScreen HTML element
         this.gameScreen = gameScreen;
     
-        // Position Values
+        // Position values
         this.left = left;
         this.initialLeft = left;
         this.top = top;
         this.initialTop = top;
     
-        // Player Dimension Values
+        // Player dimension values
         this.width = width;
         this.height = height;
     
@@ -34,7 +34,7 @@ class Player {
         this.left += this.directionX;
         this.top += this.directionY;
 
-        // Handle the Right Side of the Screen : Car stops in the Right Border of the Game Screen
+        // Handle the Right Side of the Screen: Car stops in the Right Border of the Game Screen
         if (this.left + this.width > this.gameScreen.offsetWidth) {
           this.left = this.gameScreen.offsetWidth - this.width;
         }
@@ -47,7 +47,7 @@ class Player {
           this.top = this.initialTop;
           this.isJumping = false;
         }
-        // Handle the Top Side of the Screen : cat stops in the Top Border of the Game Screen
+        // Handle the Top Side of the Screen: cat stops in the Top Border of the Game Screen
         else if (this.top <= 0) {
           this.top = 0;
           this.directionY = this.gravity;

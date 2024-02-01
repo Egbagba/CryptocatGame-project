@@ -38,7 +38,7 @@ class Game {
         // Lives
         this.lives = 3;
 
-        // Variable to Check if we are in the Process of creating an obstacle ---->>>> Ask about this
+        // Variable to check if we are in the process of creating an obstacle
         this.isPushingObstacle = false;
 
         // Variable to check if the game is over
@@ -94,7 +94,7 @@ class Game {
         let score = document.getElementById("score");
         let lives = document.getElementById("lives");
     
-        /* Every Frame of the Game, I want to check if the cat is moving */
+        /* Every frame of the game, to check if the cat is moving */
         this.player.move();
     
         // Iterate over the obstacles array and make them move
@@ -112,10 +112,10 @@ class Game {
           } else if (obstacle.left < 0 ) {
             this.score++;
     
-            // Remove the Obstacle HTML Element from the HTML.
+            // Remove the obstacle HTML element from the HTML.
             obstacle.element.remove();
     
-            // Remove the Obstacle from the Game Class'obstacles array.
+            // Remove the obstacle from the game class'obstacles array.
             this.obstacles.splice(i, 1);
           }
         }
@@ -125,7 +125,7 @@ class Game {
             this.endGame();
         }
 
-        // If there are no obstacles, push a new one after 1second and half.
+        // If the obstacles length is less than 10, push 10 new obstacles after 1second.
         if (this.obstacles.length < 10 && !this.isPushingObstacle) {
            this.createNewObstacle();
         }
@@ -173,7 +173,7 @@ class Game {
     }
 
     endGame() {
-        // Change the gameOver status. If it's true, remember this is going to break the animation loop.
+        // Change the gameOver status. If it's true, this is going to break the animation loop.
         this.gameOver = true;
     
         // Remove all obstacles
@@ -222,7 +222,7 @@ class Game {
             500, // for the cat to go down
             100,
             100,
-            "./images/cat.png" // ---->>> add the cat image
+            "./images/cat.png" 
         );
     }
 
