@@ -21,7 +21,6 @@ class Game {
 
         // game window dimensions
         this.height = 643;
-        this.width = 1255;
 
         // Obstacles
         this.obstacles = [];

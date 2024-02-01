@@ -1,3 +1,7 @@
+body {
+    background-color: #7B68EE;
+}
+
 #game-intro {
     background-image: url(images/intro_background.png);
     background-size: auto;
@@ -26,7 +30,7 @@
 
 #start-button {
     height: 60px;
-    width: 250px;
+    width: 200px;
     background-color: #76D7C4;
     font-size: 20px;
     padding: 16px;
@@ -37,14 +41,14 @@
 
 #start-button:hover {
     background-color: #F1C40F;
-    color: white;
+    color: black;
     transition-duration: 0.4s;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 #instructions-button {
     height: 60px;
-    width: 250px;
+    width: 200px;
     background-color: #76D7C4;
     font-size: 20px;
     padding: 16px;
@@ -54,7 +58,7 @@
 
 #instructions-button:hover {
     background-color: #F1C40F;
-    color: white;
+    color: black;
     transition-duration: 0.4s;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
@@ -75,9 +79,6 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     direction: flex;
-    justify-content: center;
-    align-content: center;
-    flex-flow: column wrap;
 
 }
 
@@ -87,7 +88,7 @@
 
 #back-home-button {
     height: 60px;
-    width: 250px;
+    width: 200px;
     background-color: #76D7C4;
     font-size: 20px;
     padding: 16px;
@@ -97,7 +98,7 @@
 
 #back-home-button:hover {
     background-color: #F1C40F;
-    color: white;
+    color: black;
     transition-duration: 0.4s;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
@@ -109,12 +110,25 @@
 
 }
 
+.lifeless {
+    height: 38px;
+    width: 38px;
+}
+
 #game-score {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     padding: 20px;
     display: flex;
     
+}
+
+#points-div {
+    position: fixed;
+    right: 0;
+    float: right;
+    margin-top: -150px;
+    margin-right: 50px;
 }
 
 .coin-img {
@@ -142,7 +156,7 @@
 
 #restart-button {
     height: 60px;
-    width: 250px;
+    width: 200px;
     background-color: #76D7C4;
     font-size: 20px;
     padding: 16px;
@@ -152,7 +166,7 @@
 
 #restart-button:hover {
     background-color: #F1C40F;
-    color: white;
+    color: black;
     transition-duration: 0.4s;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }

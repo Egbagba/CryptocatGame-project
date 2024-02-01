@@ -4,7 +4,7 @@ class Obstacle {
       this. points = points;
   
       // Random Position
-      this.left = 1200;
+      this.left = this.gameScreen.offsetWidth;
   
       this.top = this.randomCoinPosition(200, 500);
       this.width = 60;
