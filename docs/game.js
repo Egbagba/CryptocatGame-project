@@ -21,7 +21,7 @@ class Game {
 
         // game window dimensions
         this.height = 643;
-        this.width = 1200;
+        this.width = 1255;
 
         // Obstacles
         this.obstacles = [];
@@ -152,7 +152,7 @@ class Game {
             document.querySelector('.lives-icon').className = 'lifeless';
             let lifelessArray = document.querySelectorAll('.lifeless');
             lifelessArray.forEach(element => {
-                element.src = 'lifeless.png';
+                element.src = 'docs/images/lifeless.png';
             });
         }
 

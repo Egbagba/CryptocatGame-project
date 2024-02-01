@@ -1,17 +1,11 @@
-/* Adding a background*/
-#game-screen {
-    background-image: url(images/background.png);
-}
-
 #game-intro {
     background-image: url(images/intro_background.png);
-    background-size: cover;
+    background-size: auto;
+    background-color: #76D7C4;
     height: 643px;
     width: 1200px;
     margin: auto;
 }
-
-
 
 #intro-info {
     padding: 350px;
@@ -27,8 +21,7 @@
     font-size: 19px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    
-    
+     
 }
 
 #start-button {
@@ -70,4 +63,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#instructions-screen {
+    background-image: url(images/base_background.png);
+    background-size: cover;
+    height: 643px;
+    width: 1200px;
+    margin: auto;
+}
+
+#game-screen {
+    background-image: url(images/background.png);
+    background-size: cover;
+    position: relative;
+
+}
+
+.coin-img {
+    height: 30px;
+    width: 30px;
+}
+
+#game-over {
+    background-image: url(images/base_background.png);
+    background-size: cover;
+    height: 643px;
+    width: 1200px;
+    margin: auto;
+
 }
