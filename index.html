@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./docs/style.css">
     <title>CryptoCat World</title>
     
 </head>
@@ -13,11 +13,16 @@
     <main>
         <!-- Start screen: is initial shown on the game-->
         <div id="game-intro" >
-            <img src="./images/Cryptocat.png" alt="image of a cat" id="logo-img" />
-            <p>Insert intro here</p>
-            <br />
-            <button id="start-button">Start Game</button>
-            <button id="instructions-button">Instructions</button> 
+            <div id="intro-info">
+                <p id="intro-text">A cat named Yahiko wants to conquer humanity and the World. To accomplish that, he needs your help to score the maximum number os good coins. Let's play!</p>
+                <div class="center-button">
+                    <button id="start-button">Start Game</button>
+                </div>
+                <br />
+                <div class="center-button">
+                    <button id="instructions-button">Instructions</button> 
+                </div>
+            </div>
         </div>
     
         <!-- Instructions screen: only shown when clicking on the "Instructiions" button-->
@@ -35,9 +40,9 @@
          <!-- Game screen: where the game happens-->
          <div id="game-screen">
             <audio id="soundtrack" src="./audio/rydeen.mp3"></audio>
-            <img src="./images/lives.png" alt="image of heart" class="lives-icon" />
-            <img src="./images/lives.png" alt="image of heart" class="lives-icon" />
-            <img src="./images/lives.png" alt="image of heart" class="lives-icon" />
+            <img src="./docs/images/lives.png" alt="image of heart" class="lives-icon" />
+            <img src="./docs/images/lives.png" alt="image of heart" class="lives-icon" />
+            <img src="./docs/images/lives.png" alt="image of heart" class="lives-icon" />
             <span id="lives">3</span>
             <div>
                 <h4>Score: <span id="score">0</span></h4>
@@ -50,13 +55,15 @@
             <div>
                 <h4>Score: <span id="score-game-over">0</span></h4>
             </div>
-            <button id="restart-button">Restart Game</button>
+            <div id="restart-button">
+                <button>Restart Game</button>
+            </div>
         </div>
     </main>
     <!-- the obstacles and player should be before the game script -->
-    <script type="text/javascript" src="./obstacles.js"></script>
-    <script type="text/javascript" src="./player.js"></script>
-    <script type="text/javascript" src="./game.js"></script>
-    <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript" src="./docs/obstacles.js"></script>
+    <script type="text/javascript" src="./docs/player.js"></script>
+    <script type="text/javascript" src="./docs/game.js"></script>
+    <script type="text/javascript" src="./docs/script.js"></script>
 </body>
 </html>

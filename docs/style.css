@@ -1,0 +1,73 @@
+/* Adding a background*/
+#game-screen {
+    background-image: url(images/background.png);
+}
+
+#game-intro {
+    background-image: url(images/intro_background.png);
+    background-size: cover;
+    height: 643px;
+    width: 1200px;
+    margin: auto;
+}
+
+
+
+#intro-info {
+    padding: 350px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: column wrap;
+
+}
+
+#intro-text {
+    color: white;
+    font-size: 19px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    
+}
+
+#start-button {
+    height: 60px;
+    width: 250px;
+    background-color: #76D7C4;
+    font-size: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px solid black;
+    
+}
+
+#start-button:hover {
+    background-color: #F1C40F;
+    color: white;
+    transition-duration: 0.4s;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#instructions-button {
+    height: 60px;
+    width: 250px;
+    background-color: #76D7C4;
+    font-size: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px solid black;
+}
+
+#instructions-button:hover {
+    background-color: #F1C40F;
+    color: white;
+    transition-duration: 0.4s;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

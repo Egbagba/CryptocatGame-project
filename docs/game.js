@@ -16,7 +16,7 @@ class Game {
             500, // for the cat to go down
             100,
             100,
-            "./images/cat.png"
+            "./docs/images/cat.png"
         );
 
         // game window dimensions
@@ -27,7 +27,7 @@ class Game {
         this.obstacles = [];
 
         // coin images array to randomize the types of coins
-        this.coinTypes = ["./images/fida_coin.webp", "./images/near_coin.webp", "./images/sushi_coin.png"];
+        this.coinTypes = ["./docs/images/fida_coin.webp", "./docs/images/near_coin.webp", "./docs/images/sushi_coin.png"];
 
         // coin points array to define the points or loses of each coin
         this.coinTypePoints = [1, -1, 6];
@@ -152,7 +152,7 @@ class Game {
             document.querySelector('.lives-icon').className = 'lifeless';
             let lifelessArray = document.querySelectorAll('.lifeless');
             lifelessArray.forEach(element => {
-                element.src = 'images/lifeless.png';
+                element.src = 'lifeless.png';
             });
         }
 
@@ -203,7 +203,7 @@ class Game {
         // Restart the lives icon and lives lable to original value
         let lifelessArray = document.querySelectorAll('.lifeless');
         lifelessArray.forEach(element => {
-            element.src = 'images/lives.png';
+            element.src = 'docs/images/lives.png';
             element.classList = 'lives-icon';
         });
         this.lives = 3;
@@ -222,7 +222,7 @@ class Game {
             500, // for the cat to go down
             100,
             100,
-            "./images/cat.png" 
+            "./docs/images/cat.png" 
         );
     }
 
