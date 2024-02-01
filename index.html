@@ -28,7 +28,7 @@
         <!-- Instructions screen: only shown when clicking on the "Instructiions" button-->
         <div id="instructions-screen">
             <h3>Instructions</h3>
-            <ul>
+            <ul id="instructions-li">
                 <li>Instruction 1</li>
                 <li>Instruction 2</li>
                 <li>Instruction 3</li>
@@ -49,12 +49,14 @@
                 <span id="lives">3</span>
             </div>
             <div>
-                <img src="./docs/images/sushi_coin.png" alt="image of a sushi coin" class="coin-img">
-                <img src="./docs/images/fida_coin.webp" alt="image of a sushi coin" class="coin-img">
-                <img src="./docs/images/near_coin.webp" alt="image of a sushi coin" class="coin-img">
+                <ul id="points-menu">
+                    <li><img src="./docs/images/sushi_coin.png" alt="image of a sushi coin" class="coin-img">6 points</li>
+                    <li><img src="./docs/images/fida_coin.webp" alt="image of a sushi coin" class="coin-img">1 point</li>
+                    <li><img src="./docs/images/near_coin.webp" alt="image of a sushi coin" class="coin-img">- 1 life</li>
+                </ul>
             </div>
             <div>
-                <h4>Score: <span id="score">0</span></h4>
+                <h4 id="game-score">Score: <span id="score">0</span></h4>
             </div>
          </div>
 
@@ -64,8 +66,8 @@
             <div>
                 <h4>Score: <span id="score-game-over">0</span></h4>
             </div>
-            <div class="center-button" id="restart-button">
-                <button>Restart Game</button>
+            <div class="center-button">
+                <button id="restart-button">Restart Game</button>
             </div>
         </div>
     </main>

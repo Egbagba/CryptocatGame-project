@@ -71,6 +71,35 @@
     height: 643px;
     width: 1200px;
     margin: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    direction: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: column wrap;
+
+}
+
+#instructions-li {
+    list-style-type: none;
+}
+
+#back-home-button {
+    height: 60px;
+    width: 250px;
+    background-color: #76D7C4;
+    font-size: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px solid black;
+}
+
+#back-home-button:hover {
+    background-color: #F1C40F;
+    color: white;
+    transition-duration: 0.4s;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 #game-screen {
@@ -80,9 +109,25 @@
 
 }
 
+#game-score {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 20px;
+    display: flex;
+    
+}
+
 .coin-img {
     height: 30px;
     width: 30px;
+}
+
+#points-menu {
+    list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    display: flex;
+    flex-flow: column wrap;
 }
 
 #game-over {
@@ -91,5 +136,23 @@
     height: 643px;
     width: 1200px;
     margin: auto;
+    text-align: center;
 
+}
+
+#restart-button {
+    height: 60px;
+    width: 250px;
+    background-color: #76D7C4;
+    font-size: 20px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px solid black;
+}
+
+#restart-button:hover {
+    background-color: #F1C40F;
+    color: white;
+    transition-duration: 0.4s;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
